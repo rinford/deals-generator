@@ -1,0 +1,274 @@
+@charset "UTF-8";
+/* CSS Document */
+/* With Right Rail Upgrade */
+
+body{
+	background-color: #fff;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	letter-spacing: 0px;
+	font-size: 20px;
+	line-height: 25px;
+	color: #222;
+	font-weight: 200;
+	min-width: 600px;
+}
+.mainsection input{
+	background-color: #eee;
+	padding: 8px;
+	color: #000;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	font-size: 12px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	display: inline-block;
+	width: 334px;
+	height: 20px;
+	line-height: 20px;
+}
+.mainsection select{
+	background-color: #eee;
+	color: #000;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	font-size: 12px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	display: inline-block;
+	width: 350px;
+	height: 36px;
+	line-height: 36px;
+}
+a:link, a:visited{
+	color: #400090;
+	text-decoration: none;
+}
+a:hover, a:active{
+	color: #400090;
+	text-decoration: none;
+}
+
+h1{
+	font-size: 32px;
+	line-height: 32px;
+	font-weight: 200;
+	color: #400090;
+	margin: 10px;
+}
+
+div, img, ul {
+    vertical-align: bottom;
+}
+.yheader{
+	width: 100%;
+	display: inline-block;
+}
+	.yheader .header_yahoo{
+		width: 100%;
+		background-color: #eeeeee;
+		padding: 10px 0;
+	}
+		.yheader .header_yahoo .header_yahoo_container{
+			margin: 0 auto;
+		}
+			.yheader .header_yahoo .header_yahoo_container .yahoo_logo{
+				text-align: center;
+				width: 100%;
+			}
+				.yheader .header_yahoo .header_yahoo_container .yahoo_logo img{
+					height: 40px;
+				}
+			
+.header{
+	width: 100%;
+	display: inline-block;
+	background-color: #000;
+}
+	.header .headercontainer{
+		width: 100%;
+		height: 200px;
+		background-image: url(http://static.tumblr.com/f6ofgcr/CGio42w2l/mainbanner.jpg);
+		background-position: center top;
+		background-repeat:no-repeat;
+		position: relative;
+	}
+		.header .headercontainer .mainlogo{
+			height: 200px;
+			line-height: 200px;
+			color: #fff;
+			text-align: center;
+			font-size: 32px;
+		}
+			
+#container{
+	margin: 0 auto;
+}
+.maincontent{
+	width: 100%;
+	min-height: 800px;
+	display: inline-block;
+}
+	.maincontent .maincontainer{
+		max-width: 600px;
+		padding: 0 10px;
+		margin: 0 auto;
+		text-align: center;
+	}
+		.maincontent .maincontainer .mainsection{
+			border-bottom: 1px solid #ddd;
+			padding: 10px 0;
+			width: 100%;
+			position: relative;
+		}
+			.maincontent .maincontainer .mainsection img{
+				margin: 10px 0;
+			}
+	.entryfield{
+		width: 100%;
+		margin: 5px;
+	}
+	.fieldtitle{
+		display: inline-block;
+		width: 140px;
+		text-align: left;
+		height: 36px;
+		line-height: 36px;
+		color: #400090;
+		font-size: 18px;
+	}
+.closebutton{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #616161;
+	cursor: pointer;
+	padding: 2px;
+}
+.addbutton{
+	padding: 5px 10px;
+	display: inline-block;
+	text-align: center;
+	background-color: #1a9cf5;
+	cursor: pointer;
+	color: #fff;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 18px;
+	margin: 20px 0;
+}
+	.addbutton:hover{
+		background-color: #3c89bd;
+	}
+.preview_container{
+	border: 1px solid #ddd;
+	margin: 10px 0 35px;
+}
+#codes{
+	width: 94%;
+	border: 1px solid #ddd;
+	background-color: #fff;
+	height: auto;
+	max-width: 94%;
+	height: 300px;
+	padding: 3%;
+	font-size: 11px;
+	line-height: 11px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: 10px 0 35px;
+	color: #333;
+}
+#codes::selection {
+  background: #1a9cf5;
+  color: #fff;
+}
+#codes::-moz-selection {
+  background: #1a9cf5;
+  color: #fff;
+}
+.item_template{
+	display: none;
+}
+/* User Content Styling Start */
+#preview{
+	width: 300px;
+	margin: 0 auto;
+	text-align: left;
+	background-color: #f1f1f1;
+}
+#preview .title{
+	width: 95%;
+	padding: 10px 0 10px 5%;
+	font-size: 22px;
+	color: #400090;
+}
+#preview .newitem{
+	font-size: 18px;
+	margin: 5px 0;
+	display: inline-block;
+	width: 100%;
+}
+#preview .newitem .picture{
+	border: 1px solid #ccc;
+	height: 108px;
+	width: 108px;
+	overflow: hidden;
+	float: left;
+	margin-right: 14px;
+	background-color: #92f1d5;
+}
+	#preview .picture img{
+		height: 100% !important;
+		width: 100% !important;
+		text-align: center;
+	}
+#preview .newitem .name{
+	color: #000;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 500;
+	float: left;
+	width: 165px;
+	overflow: hidden;
+}
+#preview .newitem .price{
+	color: #000;
+	font-size: 17px;
+	line-height: 20px;
+	margin-top: 5px;
+	margin-right: 5px;
+	float: left; 
+	width: 100px;
+}
+#preview .newitem .linkbutton{
+	padding: 5px 10px;
+	margin-top: 5px;
+	display: inline-block;
+	background-color: #1a9cf5;
+	color: #fff;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	float: left;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 18px;
+}
+	#preview .newitem .linkbutton a{
+		color: #fff;
+	}
+			
+
+
+@media screen and (max-width: 1024px) {
+	
+	
+}
+
+@media screen and (max-width: 670px) {
+	
+}
+@media screen and (max-width: 644px) {
+}
+@media screen and (max-width: 450px) {
+}

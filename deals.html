@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Yahoo Deals Generator</title>
+<meta name="description" content="Deals module generator for Yahoo. Developed by Papier Blanc">
+<meta content="width=device-width, maximum-scale=1" name="viewport">
+<link rel="shortcut icon" href="http://static.tumblr.com/f6ofgcr/z8knfk1gh/yahoonewsfavicon.png">
+
+<link href="http://static.tumblr.com/f6ofgcr/7qLnb7k5a/normalize.css" rel="stylesheet" type="text/css" />
+
+<link href="http://static.tumblr.com/f6ofgcr/NoYo42w47/deals_default.css" rel="stylesheet" type="text/css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<style>
+    .tmblr-iframe--controls-phone-container{
+        padding-top: 0 !important;
+    }
+    .tmblr-iframe--controls.iframe-controls--phone-mobile, .tmblr-iframe--mobile-logged-in-controls.iframe-controls--phone-mobile{
+        display: none !important;
+    }
+    .tmblr-iframe--desktop-logged-in-controls.iframe-controls--desktop{
+        display: none !important;
+    }
+</style>
+</head>
+<body>
+
+<div class="yheader">
+    <div class="header_yahoo">
+    	<div class="header_yahoo_container">
+        	<a href="/"><div class="yahoo_logo"><img src="http://static.tumblr.com/f6ofgcr/jLuo42w2k/logo.png"></div></a>
+        </div>
+    </div>
+</div>
+
+<div class="header">
+    <div class="headercontainer">
+        <div class="mainlogo">Deals Generator</div>
+    </div>
+</div>
+
+<div class="maincontent">
+	<div class="maincontainer" id="entrycontainer">
+        <div class="mainsection">
+            <h1>Legend</h1>
+            <img src="http://static.tumblr.com/f6ofgcr/hcno42w2j/legend.png">
+            <div class="entryfield">
+                <span class="fieldtitle">Deals title:</span>
+                <input type="text" name="maintitle" style="textinput" placeholder="i.e. Travel deals, Shopping bargains, Spring sale">
+            </div>
+        </div>      
+        <div class="mainsection itementry">
+            <div class="entryfield">
+                <span class="fieldtitle">1. Picture link:</span>
+                <input type="text" name="piclink" style="textinput" placeholder="Uploaded image link here, 100px by 100px, <30kb">
+            </div>
+            <div class="entryfield">
+                <span class="fieldtitle">2. Description:</span>
+                <input type="text" name="description" style="textinput" placeholder="45 Characters recommended">
+            </div>
+            <div class="entryfield">
+                <span class="fieldtitle">3. Price:</span>
+                <input type="text" name="price" style="textinput" placeholder="15 Characters recommended, $,£,€, letters">
+            </div>
+            <div class="entryfield">
+                <span class="fieldtitle">4. Button text:</span>
+                <input type="text" name="buttonname" style="textinput" placeholder="5 Characters recommended:”buy, book, more, view, call, etc.”">
+            </div>
+            <div class="entryfield">
+                <span class="fieldtitle">5. Link:</span>
+                <input type="text" name="link" style="textinput" placeholder="CTA final destination link ">
+            </div>
+            <div class="entryfield">
+                <span class="fieldtitle">6. Country:</span>
+                <select name="country">
+                    <option value="any">All Countries</option>
+                    <option value="singapore">Singapore</option>
+                    <option value="malaysia">Malaysia</option>
+                    <option value="philippines">Philippines</option>
+                    <option value="india">India</option>
+                </select>
+            </div>
+            <div class="closebutton">✕</div>
+        </div>
+        
+            
+    </div>
+    <div class="maincontainer">
+        <div class="addbutton" onclick="additem();">Add more deals</div>
+        <h1>Preview</h1>
+        <div class="preview_container">
+            <div class="morecontent" id="preview"><div class="usercontent"></div></div>
+        </div>
+    </div>
+    <div class="maincontainer">
+        <h1>Generated codes</h1>
+        <textarea id='codes' readonly='readonly' onclick="this.select();">​</textarea>
+    </div>
+    
+</div>
+
+<div class="item_template">
+    <div class="mainsection itementry">
+        <div class="entryfield">
+            <span class="fieldtitle">1. Picture link:</span>
+            <input type="text" name="piclink" style="textinput" placeholder="Uploaded image link here, 100px by 100px, <30kb">
+        </div>
+        <div class="entryfield">
+            <span class="fieldtitle">2. Description:</span>
+            <input type="text" name="description" style="textinput" placeholder="45 Characters recommended">
+        </div>
+        <div class="entryfield">
+            <span class="fieldtitle">3. Price:</span>
+            <input type="text" name="price" style="textinput" placeholder="15 Characters recommended, $,£,€, letters">
+        </div>
+        <div class="entryfield">
+            <span class="fieldtitle">4. Button text:</span>
+            <input type="text" name="buttonname" style="textinput" placeholder="5 Characters recommended:”buy, book, more, view, call, etc.”">
+        </div>
+        <div class="entryfield">
+            <span class="fieldtitle">5. Link:</span>
+            <input type="text" name="link" style="textinput" placeholder="CTA final destination link ">
+        </div>
+        <div class="entryfield">
+            <span class="fieldtitle">6. Country:</span>
+            <select name="country">
+                <option value="any">All Countries</option>
+                <option value="singapore">Singapore</option>
+                <option value="malaysia">Malaysia</option>
+                <option value="philippines">Philippines</option>
+                <option value="india">India</option>
+            </select>
+        </div>
+        <div class="closebutton">✕</div>
+    </div>
+</div>
+
+<script type="text/javascript" src="http://static.tumblr.com/f6ofgcr/4Sgngy0pr/jquerycookie.js"></script>
+<script>
+    
+    function activatelistener(){
+        $('select').change(function(){
+            previewupdate();
+        });
+
+        $('input').keyup(function() {
+            previewupdate();
+        });
+        $('.closebutton').click(function() {
+            removeitem($(this));
+        });
+    }    
+
+    function previewupdate(){
+        $(".usercontent").empty();
+        var title = $('input[name="maintitle"]').val();
+        var titlecode = '\n    <div class="title">'+title+'</div>\n';
+        $(".usercontent").append(titlecode);
+        $("#entrycontainer .itementry").each(function() {
+            var piclink = $(this).find($('input[name="piclink"]')).val();
+            var description = $(this).find($('input[name="description"]')).val();
+            var price = $(this).find($('input[name="price"]')).val();
+            var buttonname = $(this).find($('input[name="buttonname"]')).val();
+            var link = $(this).find($('input[name="link"]')).val();
+            var country = $(this).find($('select[name="country"]')).val();
+
+            var itemcode = '    <div class="newitem '+country+'">\n        <div class="picture"><img src="'+piclink+'" alt="image"></div>\n        <div class="name">'+description+'</div>\n        <div class="price">'+price+'</div>\n        <div><a href="'+link+'" target="_blank" class="linkbutton">'+buttonname+'</a></div>\n    </div>\n';
+
+            $(".usercontent").append(itemcode);
+        });
+        generatecode();
+    }
+
+    function generatecode(){
+        $("#codes").val($("#preview").html());
+    }
+    function additem(){
+        $(".item_template").find(".itementry").clone().appendTo("#entrycontainer");
+        previewupdate();
+        activatelistener();
+    }
+    function removeitem(item){
+        item.parent(".itementry").remove();
+        console.log("remove item");
+        previewupdate();
+    }
+
+    $(document).ready(function() {
+        previewupdate();
+        activatelistener();
+    });
+    
+</script>
+</body>
+</html>
